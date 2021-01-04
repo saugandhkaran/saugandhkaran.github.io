@@ -1,18 +1,62 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <div class="section">
+    <img src="../assets/portfolio-image.png" alt="Saugandh image"/>
+    <div class="home-text">
+      <p>Hi, </p>
+      <p>I am Saugandh</p>
+      <router-link to="about"><button>About me</button></router-link>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   components: {
-    HelloWorld
   }
 }
 </script>
+
+<style lang="scss">
+.section {
+  -webkit-animation-name: popup;
+  -webkit-animation-duration: 0.4s;
+  animation-name: popup;
+  animation-duration: 0.4s;
+  img {
+    max-width: 400px;
+  }
+
+  .home-text {
+    text-align: left;
+    p {
+      font-weight: bold;
+      font-size: 2em;
+      margin: 0;
+      line-height: 1.3;
+    }
+    button {
+      margin-top: 20px;
+    }
+  }
+}
+
+.quote {
+  -webkit-animation-name: slide;
+  -webkit-animation-duration: 1s;
+  animation-name: slide;
+  animation-duration: 1s;
+  }
+
+  @-webkit-keyframes slide {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+
+  @keyframes slide {
+      from {opacity: 0}
+      to {opacity: 1}
+  }
+</style>
