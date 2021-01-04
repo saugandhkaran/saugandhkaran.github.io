@@ -5,6 +5,7 @@
     <div class="home-text">
       <p>Hi, </p>
       <p>I am Saugandh</p>
+      <p class="stats">Web Developer, UI Designer, Entrepreneur</p>
       <router-link to="about"><button>About me</button></router-link>
     </div>
   </div>
@@ -36,6 +37,9 @@ export default {
       font-size: 2em;
       margin: 0;
       line-height: 1.3;
+    }
+    .stats {
+      font-size: 1em;
     }
     button {
       margin-top: 20px;
