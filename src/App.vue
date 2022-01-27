@@ -26,16 +26,17 @@ html {
 
 };
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Dosis', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #003049;
+  font-size: 20px;
 }
 
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #D75915;
+  color: #003049;
 }
 
 .section {
@@ -44,7 +45,7 @@ a {
   max-width: 1000px;
   justify-content: space-around;
   align-items: center;
-  padding: 100px 10px;
+  min-height: 80vh;
   margin: 0 auto;
 }
 

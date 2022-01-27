@@ -8,10 +8,9 @@
     </router-link>
     <div class="menu">
       <ul>
-        <li><router-link to="/about">about</router-link></li>
+        <li><router-link to="/blog">blogs</router-link></li>
         <li><router-link to="/experience">experience</router-link></li>
         <li><router-link to="/portfolio">portfolio</router-link></li>
-        <li><router-link to="/contact">contact</router-link></li>
       </ul>
     </div>
   </nav>
@@ -27,8 +26,9 @@ export default {
 nav {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0px 10px;
+  background-color: #eae2b7;
 
   .brand {
     display: flex;
@@ -45,11 +45,16 @@ nav {
   .menu {
     display: flex;
     justify-content: space-around;
+    
     ul {
       display: flex;
       list-style: none;
+      padding-left: 0px;
       li {
         margin-left: 30px;
+        &:first-child{
+        margin-left: 0px;
+      }
       }
     }
   }

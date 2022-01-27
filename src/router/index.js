@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Experience from '../views/Experience'
 import Portfolio from '../views/Portfolio'
 import Contact from '../views/Contact'
+import Blog from '../views/Blog'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+    },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component: Blog
     },
     {
       path: '/about',
