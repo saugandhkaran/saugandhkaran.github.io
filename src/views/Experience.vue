@@ -1,74 +1,16 @@
 <template>
 <div class="section">
-  <div class="left-content">
-    <h3 class="text-center">Currently</h3>
-    <div class="flex-container">
-      <div class="card" @mouseover="activeExperience = 'abn'" @mouseleave="activeExperience = ''">
-        <img class="experience-image" src="../assets/ABN.png">
-        <div>
-        <p><strong>Development Engineer</strong></p>
-        <p>ABN-AMRO via Sogeti</p>
-        </div>
-      </div>
-      <div class="card" @mouseover="activeExperience = 'ebattle'" @mouseleave="activeExperience = ''">
-        <img class="experience-image" src="../assets/DP.png">
-        <div>
-        <p><strong>Cofounder</strong></p>
-        <p>ebattle.online</p>
-        <p style="color: white">current</p>
-        </div>
-      </div>
-    </div>
-    <h3 class="text-center">Previous stints</h3>
+  <div>
     <div class="flex-container column">
-      <div @mouseover="activeExperience = 'kvk'" @mouseleave="activeExperience = ''" class="card previous">
-        <img class="experience-image" src="../assets/KVK.png">
+      <h3 class="text-center">Experiences</h3>
+      <div v-for="experience in myExperience" :key="experience.date" class="card">
+        <img class="experience-image" :src="experience.image">
         <div>
-        <p><strong>Frontend Developer, </strong>KVK via Sogeti</p>
+        <p style="color: #d62828;"><strong>{{experience.position}}, </strong>{{experience.company}}</p>
+        <p class="work-date">{{experience.date}}</p>
+        <p class="work-description">{{experience.description}}</p>
         </div>
       </div>
-      <div @mouseover="activeExperience = 'kika'" @mouseleave="activeExperience = ''" class="card previous">
-        <img class="experience-image" src="../assets/kika.png">
-        <div>
-        <p><strong>Javascript Developer, </strong>KiKA via Sogeti</p>
-        </div>
-      </div>
-      <div @mouseover="activeExperience = 'abn-infy'" @mouseleave="activeExperience = ''" class="card previous">
-        <img class="experience-image" src="../assets/ABN.png">
-        <div>
-        <p><strong>Development Engineer, </strong>ABN-AMRO via Infosys</p>
-        </div>
-      </div>
-      <div @mouseover="activeExperience = 'osm'" @mouseleave="activeExperience = ''" class="card previous">
-        <img class="experience-image" src="../assets/osmcult.png">
-        <div>
-        <p><strong>Chief UI Designer, </strong>OSMCult.com</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="flex-container column">
-    <h3>Hover on the experience <br>cards to see what I used</h3>
-     <div class="images">
-      <img v-bind:class="{ 'remove-greyscale': activeExperience }" src="../assets/html.png" />
-      <img v-bind:class="{ 'remove-greyscale': activeExperience }" src="../assets/css.png" />
-      <img v-bind:class="{ 'remove-greyscale': activeExperience }" src="../assets/es.png" />
-      <img v-bind:class="{ 'remove-greyscale': activeExperience }" src="../assets/js.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'ebattle') || (activeExperience === 'kvk')}" src="../assets/vue.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'abn') || (activeExperience === 'abn-infy') || (activeExperience === 'kika')}" src="../assets/angular.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'abn') || (activeExperience === 'abn-infy')}" src="../assets/bootstrap.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'kika')}" src="../assets/materialise.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'kika') || (activeExperience === 'ebattle') || (activeExperience === 'abn') || (activeExperience === 'kvk')}" src="../assets/node.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'kika') || (activeExperience === 'ebattle') || (activeExperience === 'abn') || (activeExperience === 'kvk')}" src="../assets/npm.png" /><br>
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'kika')}" src="../assets/ts.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'abn-infy') || (activeExperience === 'ebattle')}" src="../assets/python.png" />
-      <img v-bind:class="{ 'remove-greyscale': activeExperience }" src="../assets/git.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'abn-infy')}" src="../assets/gulp.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience)}" src="../assets/atlassia.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'abn-infy') }" src="../assets/elastic.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'kvk')}" src="../assets/docker.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'abn-infy')}" src="../assets/nuxeo.png" />
-      <img v-bind:class="{ 'remove-greyscale': (activeExperience === 'ebattle') || (activeExperience === 'kika') || (activeExperience === 'kvk')}" src="../assets/mongo.png" />
     </div>
   </div>
 </div>
@@ -81,7 +23,58 @@ export default {
   },
   data () {
     return {
-      activeExperience: ''
+      activeExperience: '',
+      myExperience: [
+        {
+          date: 'May 2021 - Present',
+          position: 'Software Engineer',
+          company: 'Zalando SE',
+          image: require('../assets/zalando.png'),
+          description: 'Me and my team are responsible for making the checkout experience of 21 million active customers across 26 countries smoother and hasslefree on web platform.'
+        },
+        {
+          date: 'Jun 2020 - Mar 2021',
+          position: 'Development Engineer',
+          company: 'ABN AMRO via Sogeti',
+          image: require('../assets/ABN.png'),
+          description: 'I was part of a team where the focus was on making the onboarding experience into investment easier for customers.'
+        },
+        {
+          date: 'Jan 2020 - Present',
+          position: 'Co-founder',
+          company: 'ebattle.online',
+          image: require('../assets/DP.png'),
+          description: 'A humble attempt to realise my idea into a reality. An online game orchestration platform.'
+        },
+        {
+          date: 'Aug 2019 - Mar 2020',
+          position: 'Senior Frontend Developer',
+          company: 'Kamer van Koophandel via Sogeti',
+          image: require('../assets/KVK.png'),
+          description: 'I was part of a team to create a social network platform for big organisations and freelancers to connect and exchange their ideas.'
+        },
+        {
+          date: 'May 2019 - Aug 2019',
+          position: 'Javascript Developer',
+          company: 'Stitching Kinderen Kankervrij (KiKa) via Sogeti',
+          image: require('../assets/kika.png'),
+          description: 'I was part of building a social network platform for kids suffering from chronic diseases. It was a PWA where children can chat with each other, create events and share their thoughts.'
+        },
+        {
+          date: 'May 2016 - Apr 2019',
+          position: 'Development Engineer',
+          company: 'ABN AMRO via Infosys',
+          image: require('../assets/ABN.png'),
+          description: 'I was part of a Enterprise Content Management team responsible to decommision a liscenced product and create a new tool using open source. The tool is currently used in 7 countries.'
+        },
+        {
+          date: 'May 2016 - Apr 2017',
+          position: 'Chief UI Designer',
+          company: 'OSM Cult',
+          image: require('../assets/osmcult.png'),
+          description: 'I was responsible for creating the UI designs of the website. I was also responsible for creating digital content for various marketing campaigns and company promotions.'
+        }
+      ]
     }
   }
 }
@@ -90,42 +83,31 @@ export default {
 <style lang="scss">
 .card {
     padding: 5px 5px 5px 5px;
-    background-color: #ddbda1;
-    border-radius: 6px;
     margin: 5px 5px;
     -webkit-animation-name: popup;
     -webkit-animation-duration: 0.4s;
     animation-name: popup;
     animation-duration: 0.4s;
-    width: 280px;
     display: flex;
+    border-bottom: 2px solid #003049;
     .experience-image {
-      width: 120px;
+      width: 50px;
+      height: 50px;
       border-radius: 6px;
     }
-    &:hover {
-      transform: scale(1.05);
-      transition: 0.2s ease-out;
+    .work-date {
+      font-size: 0.8em;
+      line-height: 1;
+    }
+    .work-description {
+      line-height: 1.2;
+      font-size: 0.9em;
+      padding: 12px 5px;
     }
     p {
       margin: 0px;
       padding: 5px 5px;
-      color: #724721;
-      max-width: 160px;
-    }
-
-    &.previous {
-      max-width: 580px;
-      width: 100%;
-      align-items: center;
-      img {
-        width: 50px;
-        height: 50px;
-      }
-      p {
-        max-width: 100%;
-        margin-left: 10px;
-      }
+      color: #003049;
     }
   }
   @-webkit-keyframes popup {
@@ -137,14 +119,6 @@ export default {
       from {opacity: 0}
       to {opacity: 1}
   }
-.left-content {
-  flex: 1;  
-  p {
-    margin-left: 10px;
-    padding: 0;
-    line-height: 1.6;
-  }
-}
 
 .images {
     display: flex;
@@ -169,7 +143,6 @@ export default {
 
   &.column {
     flex-direction: column;
-    align-items: center;
     .card {
       padding: 5px 5px 5px 5px;
     }

@@ -1,27 +1,30 @@
 <template>
 <div>
+  <h3 class="text-center">Portfolio</h3>
   <div v-if="loading">Loading portfolio</div>
-  <div class="section" v-if="!loading">
+  <div class="section column" v-if="!loading">
     <div class="main-portfolio">
       <img src="../assets/ebattle.png" />
-      <h3>ebattle.online</h3>
-      <p>A platform aiming to bring competetive gaming for everyone.</p>
-      <a href="https://ebattle.online" target="_blank" rel="noopener noreferrer"><button>Go to website</button></a>
+      <div class="repo-details">
+        <h3 class="repo-title"><a href="https://ebattle.online" target="_blank" rel="noopener noreferrer">ebattle.online 🌐</a></h3>
+        <p>A platform aiming to bring competetive gaming for everyone.</p>
+      </div>
     </div>
     <div class="main-portfolio">
       <img src="../assets/creator_ebattle.png" />
-      <h3>creator.ebattle.online</h3>
-      <p>A platform to unite all game hosts to host and manage their games.</p>
-      <a href="https://creator.ebattle.online" target="_blank" rel="noopener noreferrer"><button>Go to website</button></a>
+      <div class="repo-details">
+        <h3 class="repo-title"><a href="https://creator.ebattle.online" target="_blank" rel="noopener noreferrer">creator.ebattle.online 🌐</a></h3>
+        <p>A platform to unite all game hosts to host and manage their games.</p>
+      </div>
     </div>
     <div class="main-portfolio" v-for="repo in githubRepos" :key="repo.id">
       <img src="../assets/dinq.png" v-if="repo.name=== 'humaraindia'" alt="dinq.in"/>
       <img src="../assets/ntcp.png" v-if="repo.name=== 'ntcp'" alt="dinq.in"/>
       <img src="../assets/tvshows.png" v-if="repo.name=== 'tvshows_app'" alt="dinq.in"/>
-      <h3>{{repo.name}}</h3>
-      <p>{{repo.description}}</p>
-      <a :href="repo.homepage" v-if="repo.name === 'saugandhkaran.github.io'" target="_blank"><button class="btn-primary">This is the site</button></a>
-      <a :href="repo.homepage" v-if="repo.name !== 'saugandhkaran.github.io'" target="_blank"><button class="btn-primary">Go to demo site</button></a>
+      <div class="repo-details">
+        <h3 class="repo-title"><a :href="repo.homepage" target="_blank" rel="noopener noreferrer">{{repo.name}} 🌐</a></h3>
+        <p>{{repo.description}}</p>
+      </div>
     </div>
   </div>
 </div>
@@ -42,7 +45,6 @@ export default {
       repoList: [
         'humaraindia',
         'tvshows_app',
-        'saugandhkaran.github.io',
         'ntcp'
       ]
     }
@@ -70,26 +72,35 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+.section {
+  justify-content: flex-start;
+}
+
 .main-portfolio {
-  max-width: 300px;
-  background-color: #ddbda1;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   margin: 20px 10px;
-  -webkit-animation-name: popup;
-  -webkit-animation-duration: 0.4s;
-  animation-name: popup;
-  animation-duration: 0.4s;
-  color: #724721;
+  color: #003049;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-bottom: 2px solid #003049;
   p, h3 {
     padding: 0px 10px;
   }
-  button {
-    margin: 10px;
-  }
   img {
-    width: 100%;
+    max-width: 345px;
+    padding: 0;
+  }
+  .repo-details {
+    padding: 0px 10px;
+    .repo-title {
+      a{
+        &:hover {
+          color: #d62828;
+        }
+      }
+    }
   }
 }
 

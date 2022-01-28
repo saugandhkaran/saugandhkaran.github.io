@@ -41,10 +41,6 @@ export default {
   color: #d62828;
 }
 .section {
-  -webkit-animation-name: popup;
-  -webkit-animation-duration: 0.4s;
-  animation-name: popup;
-  animation-duration: 0.4s;
   img {
     max-width: 355px;
     padding: 0 10px;

@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import Experience from '../views/Experience'
 import Portfolio from '../views/Portfolio'
-import Contact from '../views/Contact'
 import Blog from '../views/Blog'
 
 Vue.use(VueRouter)
@@ -21,11 +19,6 @@ Vue.use(VueRouter)
       component: Blog
     },
     {
-      path: '/about',
-      name: 'About',
-      component: About
-    },
-    {
       path: '/experience',
       name: 'Experience',
       component: Experience
@@ -34,11 +27,6 @@ Vue.use(VueRouter)
       path: '/portfolio',
       name: 'Portfolio',
       component: Portfolio
-    },
-    {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact
     }
 ]
 

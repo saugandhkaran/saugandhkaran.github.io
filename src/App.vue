@@ -65,7 +65,7 @@ button {
   align-items: center;
   flex:1;
   overflow: auto;
-  .column {
+  &.column {
     display: flex;
     flex-direction: column;
     align-items: center;
